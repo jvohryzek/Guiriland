@@ -1,0 +1,411 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 2120" role="img" aria-labelledby="title desc">
+  <title id="title">Guiriland GUI concept board</title>
+  <desc id="desc">Ten readable GUI and layout concepts for a La Rambla water pistol arcade prototype.</desc>
+  <defs>
+    <linearGradient id="sand" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#ead493"/>
+      <stop offset="1" stop-color="#cda461"/>
+    </linearGradient>
+    <linearGradient id="night" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#182635"/>
+      <stop offset="1" stop-color="#28384a"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+    <g id="sceneBase">
+      <rect width="500" height="333" fill="#23313e"/>
+      <rect x="0" y="0" width="86" height="333" fill="#c66a50"/>
+      <rect x="414" y="0" width="86" height="333" fill="#e0a36e"/>
+      <rect x="86" y="0" width="48" height="333" fill="#2f6b4a"/>
+      <rect x="366" y="0" width="48" height="333" fill="#2b6044"/>
+      <rect x="134" y="0" width="232" height="333" fill="url(#sand)"/>
+      <rect x="134" y="0" width="5" height="333" fill="#b95747"/>
+      <rect x="361" y="0" width="5" height="333" fill="#b95747"/>
+      <path d="M250 0 L238 333 M250 0 L262 333" stroke="#b98e52" stroke-width="2" opacity="0.35"/>
+      <g opacity="0.82">
+        <rect x="13" y="20" width="52" height="24" fill="#f3c886"/>
+        <rect x="15" y="74" width="48" height="22" fill="#f6e1a8"/>
+        <rect x="10" y="128" width="58" height="24" fill="#d98b62"/>
+        <rect x="18" y="190" width="44" height="22" fill="#f0c17a"/>
+        <rect x="11" y="250" width="56" height="25" fill="#d66c55"/>
+        <rect x="436" y="30" width="50" height="23" fill="#f0c17a"/>
+        <rect x="427" y="92" width="60" height="25" fill="#d7795a"/>
+        <rect x="438" y="151" width="48" height="22" fill="#f6e1a8"/>
+        <rect x="431" y="214" width="56" height="24" fill="#d98b62"/>
+        <rect x="440" y="274" width="44" height="21" fill="#f0c17a"/>
+      </g>
+      <g fill="#1c4934">
+        <circle cx="111" cy="28" r="10"/>
+        <circle cx="389" cy="52" r="10"/>
+        <circle cx="111" cy="88" r="10"/>
+        <circle cx="389" cy="118" r="10"/>
+        <circle cx="111" cy="148" r="10"/>
+        <circle cx="389" cy="184" r="10"/>
+        <circle cx="111" cy="218" r="10"/>
+        <circle cx="389" cy="258" r="10"/>
+        <circle cx="111" cy="286" r="10"/>
+      </g>
+      <g fill="#4f3326" opacity="0.65">
+        <rect x="109" y="28" width="4" height="14"/>
+        <rect x="387" y="52" width="4" height="14"/>
+        <rect x="109" y="88" width="4" height="14"/>
+        <rect x="387" y="118" width="4" height="14"/>
+        <rect x="109" y="148" width="4" height="14"/>
+        <rect x="387" y="184" width="4" height="14"/>
+        <rect x="109" y="218" width="4" height="14"/>
+        <rect x="387" y="258" width="4" height="14"/>
+        <rect x="109" y="286" width="4" height="14"/>
+      </g>
+    </g>
+    <g id="tourist">
+      <ellipse cx="0" cy="17" rx="12" ry="6" fill="#000" opacity="0.17"/>
+      <rect x="-7" y="-1" width="14" height="20" rx="5" fill="currentColor"/>
+      <circle cx="0" cy="-10" r="9" fill="#ffd2a3"/>
+      <rect x="-10" y="18" width="8" height="8" rx="3" fill="#2f3e50"/>
+      <rect x="2" y="18" width="8" height="8" rx="3" fill="#2f3e50"/>
+    </g>
+    <g id="player">
+      <ellipse cx="0" cy="18" rx="13" ry="7" fill="#000" opacity="0.18"/>
+      <rect x="-7" y="-1" width="14" height="21" rx="5" fill="#f7f4e9"/>
+      <circle cx="0" cy="-11" r="9" fill="#ffd2a3"/>
+      <rect x="-10" y="18" width="8" height="9" rx="3" fill="#2f5f9f"/>
+      <rect x="2" y="18" width="8" height="9" rx="3" fill="#2f5f9f"/>
+      <rect x="9" y="-2" width="15" height="5" rx="2" fill="#27c7e8"/>
+    </g>
+    <g id="fountain">
+      <ellipse cx="0" cy="5" rx="16" ry="8" fill="#b69770"/>
+      <ellipse cx="0" cy="0" rx="12" ry="6" fill="#e0c48d"/>
+      <ellipse cx="0" cy="-2" rx="9" ry="4" fill="#72d3ef"/>
+      <path d="M0 -16 C-8 -10 -8 -4 0 -2 C8 -4 8 -10 0 -16Z" fill="#8fe8ff" opacity="0.9"/>
+    </g>
+    <g id="cartridge">
+      <rect x="-6" y="-12" width="12" height="24" rx="5" fill="#22c6e8"/>
+      <rect x="-4" y="-16" width="8" height="6" rx="2" fill="#d7f8ff"/>
+      <rect x="-7" y="0" width="14" height="7" rx="2" fill="#f7f4e9"/>
+      <rect x="-4" y="2" width="8" height="2" fill="#2e5a95"/>
+    </g>
+    <clipPath id="screenClip">
+      <rect width="500" height="333" rx="8"/>
+    </clipPath>
+    <style>
+      text { font-family: Inter, Arial, sans-serif; letter-spacing: 0; }
+      .board-title { fill: #f7f4e9; font-size: 34px; font-weight: 900; }
+      .board-subtitle { fill: #9fb2c3; font-size: 16px; font-weight: 600; }
+      .panel-label { fill: #f7f4e9; font-size: 19px; font-weight: 900; }
+      .panel-note { fill: #9fb2c3; font-size: 12px; font-weight: 700; }
+      .screen { fill: #16212c; stroke: #415268; stroke-width: 2; filter: url(#softShadow); }
+      .hud-dark { fill: rgba(13, 27, 36, 0.88); }
+      .hud-red { fill: #c45f4a; }
+      .hud-teal { fill: #1f9fb4; }
+      .hud-cream { fill: #fff4d6; }
+      .hud-yellow { fill: #ffd166; }
+      .hud-green { fill: #39a96b; }
+      .hud-ink { fill: #10202b; }
+      .hud-text { fill: #10202b; font-size: 13px; font-weight: 900; }
+      .hud-text-light { fill: #f7f4e9; font-size: 13px; font-weight: 900; }
+      .tiny { font-size: 9px; font-weight: 800; }
+      .small { font-size: 11px; font-weight: 850; }
+      .label-light { fill: #f7f4e9; font-weight: 900; }
+      .label-dark { fill: #10202b; font-weight: 900; }
+      .muted { fill: #6d7f8f; font-weight: 750; }
+      .outline { stroke: #10202b; stroke-width: 2; }
+      .water-segment { fill: #50d8ff; stroke: #10202b; stroke-width: 1; }
+      .water-empty { fill: #d8efe9; stroke: #10202b; stroke-width: 1; opacity: 0.55; }
+      .danger { fill: #e94545; }
+      .warning { fill: #ffcc4d; }
+      .good { fill: #48c17d; }
+    </style>
+  </defs>
+
+  <rect width="1120" height="2120" fill="#101923"/>
+  <text x="40" y="50" class="board-title">Guiriland GUI Concepts</text>
+  <text x="40" y="78" class="board-subtitle">Ten layout directions based on TASKS.md: ammo, fountains, tourist reactions, archetypes, locals as penalties, and La Rambla readability.</text>
+
+  <g transform="translate(40 118)">
+    <text y="-16" class="panel-label">01 Clean Arcade Strip</text>
+    <text x="246" y="-16" class="panel-note">current HUD, made clearer</text>
+    <rect class="screen" width="500" height="333" rx="8"/>
+    <g clip-path="url(#screenClip)">
+      <use href="#sceneBase"/>
+      <use href="#player" x="245" y="252"/>
+      <use href="#tourist" x="198" y="172" style="color:#ff6b6b"/>
+      <use href="#tourist" x="288" y="128" style="color:#39a96b"/>
+      <use href="#tourist" x="230" y="78" style="color:#f2b5d4"/>
+      <use href="#fountain" x="150" y="80"/>
+      <use href="#cartridge" x="340" y="230"/>
+      <path d="M260 244 C286 225 306 207 325 188" stroke="#69dcff" stroke-width="8" stroke-linecap="round" opacity="0.65"/>
+      <g>
+        <rect x="0" y="0" width="500" height="44" fill="#c45f4a" opacity="0.96"/>
+        <text x="22" y="28" class="hud-text">SCORE 03</text>
+        <text x="196" y="28" class="hud-text">SPRAY ALL TOURISTS</text>
+        <text x="414" y="28" class="hud-text">TIME 62</text>
+        <rect x="340" y="12" width="55" height="18" rx="3" fill="#10202b" opacity="0.22"/>
+        <rect x="345" y="15" width="8" height="12" class="water-segment"/>
+        <rect x="356" y="15" width="8" height="12" class="water-segment"/>
+        <rect x="367" y="15" width="8" height="12" class="water-segment"/>
+        <rect x="378" y="15" width="8" height="12" class="water-empty"/>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(580 118)">
+    <text y="-16" class="panel-label">02 Water Pistol First</text>
+    <text x="246" y="-16" class="panel-note">ammo as the main decision</text>
+    <rect class="screen" width="500" height="333" rx="8"/>
+    <g clip-path="url(#screenClip)">
+      <use href="#sceneBase"/>
+      <use href="#player" x="250" y="236"/>
+      <use href="#tourist" x="208" y="162" style="color:#ff9f1c"/>
+      <use href="#tourist" x="306" y="108" style="color:#72ddf7"/>
+      <use href="#fountain" x="360" y="178"/>
+      <path d="M262 224 C288 211 310 196 340 181" stroke="#69dcff" stroke-width="7" stroke-linecap="round" opacity="0.58"/>
+      <rect x="18" y="68" width="66" height="230" rx="8" fill="#10202b" opacity="0.9"/>
+      <text x="35" y="90" class="hud-text-light small">WATER</text>
+      <rect x="36" y="106" width="30" height="160" rx="4" fill="#29414f"/>
+      <rect x="39" y="149" width="24" height="114" rx="3" fill="#50d8ff"/>
+      <rect x="36" y="106" width="30" height="160" rx="4" fill="none" stroke="#f7f4e9" stroke-width="2"/>
+      <rect x="26" y="276" width="50" height="14" rx="3" fill="#ffd166"/>
+      <text x="36" y="286" class="hud-ink tiny">6 / 8</text>
+      <circle cx="436" cy="48" r="28" fill="#10202b" opacity="0.9"/>
+      <path d="M436 48 L436 26 A22 22 0 0 1 457 55" fill="none" stroke="#ffd166" stroke-width="6" stroke-linecap="round"/>
+      <text x="426" y="53" class="hud-text-light">62</text>
+      <rect x="342" y="202" width="112" height="34" rx="6" fill="#fff4d6" stroke="#10202b" stroke-width="2"/>
+      <text x="359" y="224" class="hud-text">HOLD E</text>
+    </g>
+  </g>
+
+  <g transform="translate(40 518)">
+    <text y="-16" class="panel-label">03 Rambla Minimap</text>
+    <text x="246" y="-16" class="panel-note">resource stations and route planning</text>
+    <rect class="screen" width="500" height="333" rx="8"/>
+    <g clip-path="url(#screenClip)">
+      <use href="#sceneBase"/>
+      <use href="#player" x="252" y="260"/>
+      <use href="#tourist" x="220" y="218" style="color:#ff6b6b"/>
+      <use href="#tourist" x="286" y="150" style="color:#39a96b"/>
+      <use href="#tourist" x="205" y="88" style="color:#f2b5d4"/>
+      <use href="#fountain" x="148" y="238"/>
+      <use href="#fountain" x="350" y="120"/>
+      <rect x="0" y="0" width="500" height="38" fill="#10202b" opacity="0.88"/>
+      <text x="22" y="25" class="hud-text-light">TARGETS 5 LEFT</text>
+      <text x="206" y="25" class="hud-text-light">FOUNTAINS READY</text>
+      <text x="422" y="25" class="hud-text-light">01:02</text>
+      <rect x="18" y="54" width="82" height="238" rx="8" fill="#fff4d6" stroke="#10202b" stroke-width="2"/>
+      <text x="33" y="74" class="label-dark tiny">LA RAMBLA</text>
+      <rect x="51" y="86" width="18" height="178" rx="4" fill="#d1b06f"/>
+      <circle cx="60" cy="105" r="5" fill="#50d8ff"/>
+      <circle cx="60" cy="171" r="5" fill="#50d8ff"/>
+      <circle cx="60" cy="239" r="5" fill="#50d8ff"/>
+      <circle cx="49" cy="211" r="5" fill="#e94545"/>
+      <circle cx="70" cy="150" r="5" fill="#e94545"/>
+      <circle cx="50" cy="122" r="4" fill="#48c17d"/>
+      <path d="M60 252 C54 232 72 210 61 188 C49 166 68 145 60 119" fill="none" stroke="#10202b" stroke-width="3" stroke-linecap="round"/>
+      <text x="45" y="281" class="muted tiny">YOU</text>
+    </g>
+  </g>
+
+  <g transform="translate(580 518)">
+    <text y="-16" class="panel-label">04 Reaction Bubbles</text>
+    <text x="246" y="-16" class="panel-note">NPCs react instead of vanishing</text>
+    <rect class="screen" width="500" height="333" rx="8"/>
+    <g clip-path="url(#screenClip)">
+      <use href="#sceneBase"/>
+      <use href="#player" x="252" y="248"/>
+      <use href="#tourist" x="212" y="168" style="color:#ff6b6b"/>
+      <use href="#tourist" x="300" y="142" style="color:#39a96b"/>
+      <use href="#tourist" x="258" y="82" style="color:#f2b5d4"/>
+      <path d="M265 236 C245 218 228 194 214 176" stroke="#69dcff" stroke-width="8" stroke-linecap="round" opacity="0.63"/>
+      <g transform="translate(172 104)">
+        <rect x="0" y="0" width="84" height="38" rx="8" fill="#fff4d6" stroke="#10202b" stroke-width="2"/>
+        <path d="M50 36 L58 50 L61 35" fill="#fff4d6" stroke="#10202b" stroke-width="2"/>
+        <text x="13" y="24" class="label-dark small">SHOCKED</text>
+      </g>
+      <g transform="translate(302 82)">
+        <rect x="0" y="0" width="78" height="34" rx="8" fill="#ffd166" stroke="#10202b" stroke-width="2"/>
+        <text x="15" y="22" class="label-dark small">ANGRY</text>
+      </g>
+      <g transform="translate(335 168)">
+        <rect x="0" y="0" width="116" height="35" rx="8" fill="#10202b" opacity="0.88"/>
+        <text x="13" y="23" class="hud-text-light small">PANIC RUN</text>
+      </g>
+      <rect x="18" y="18" width="166" height="30" rx="6" fill="#c45f4a"/>
+      <text x="32" y="38" class="hud-text">COMBO x3</text>
+      <text x="118" y="38" class="hud-text">+250</text>
+    </g>
+  </g>
+
+  <g transform="translate(40 918)">
+    <text y="-16" class="panel-label">05 Fountain Refill Focus</text>
+    <text x="246" y="-16" class="panel-note">checkpoint interaction with progress</text>
+    <rect class="screen" width="500" height="333" rx="8"/>
+    <g clip-path="url(#screenClip)">
+      <use href="#sceneBase"/>
+      <use href="#player" x="294" y="166"/>
+      <use href="#fountain" x="256" y="166"/>
+      <use href="#tourist" x="202" y="98" style="color:#ff9f1c"/>
+      <use href="#tourist" x="314" y="240" style="color:#72ddf7"/>
+      <circle cx="256" cy="166" r="54" fill="#50d8ff" opacity="0.12" stroke="#50d8ff" stroke-width="2"/>
+      <circle cx="256" cy="166" r="42" fill="none" stroke="#10202b" stroke-width="8" opacity="0.5"/>
+      <path d="M256 124 A42 42 0 1 1 220 187" fill="none" stroke="#50d8ff" stroke-width="8" stroke-linecap="round"/>
+      <rect x="168" y="36" width="164" height="38" rx="8" fill="#fff4d6" stroke="#10202b" stroke-width="2"/>
+      <text x="194" y="60" class="hud-text">HOLD E TO REFILL</text>
+      <rect x="130" y="282" width="240" height="24" rx="6" fill="#10202b" opacity="0.86"/>
+      <rect x="138" y="289" width="154" height="10" rx="3" fill="#50d8ff"/>
+      <text x="308" y="299" class="hud-text-light tiny">65%</text>
+      <rect x="0" y="0" width="500" height="34" fill="#10202b" opacity="0.83"/>
+      <text x="20" y="23" class="hud-text-light">WATER 3/8</text>
+      <text x="404" y="23" class="hud-text-light">TIME 48</text>
+    </g>
+  </g>
+
+  <g transform="translate(580 918)">
+    <text y="-16" class="panel-label">06 Local Penalty Warning</text>
+    <text x="246" y="-16" class="panel-note">clear contrast between locals and tourists</text>
+    <rect class="screen" width="500" height="333" rx="8"/>
+    <g clip-path="url(#screenClip)">
+      <use href="#sceneBase"/>
+      <use href="#player" x="252" y="250"/>
+      <use href="#tourist" x="210" y="166" style="color:#ff6b6b"/>
+      <use href="#tourist" x="306" y="174" style="color:#8b8f90"/>
+      <rect x="293" y="130" width="92" height="28" rx="6" fill="#10202b" opacity="0.88"/>
+      <text x="308" y="149" class="hud-text-light small">LOCAL</text>
+      <circle cx="306" cy="174" r="30" fill="none" stroke="#ffcc4d" stroke-width="4" stroke-dasharray="7 5"/>
+      <path d="M262 238 C277 219 292 197 305 178" stroke="#ffcc4d" stroke-width="6" stroke-linecap="round" opacity="0.72"/>
+      <g transform="translate(128 42)">
+        <rect x="0" y="0" width="244" height="52" rx="8" fill="#ffcc4d" stroke="#10202b" stroke-width="2"/>
+        <text x="22" y="23" class="label-dark small">DO NOT SPRAY LOCALS</text>
+        <text x="22" y="40" class="muted tiny">Penalty preview: -300 points</text>
+      </g>
+      <rect x="0" y="0" width="500" height="34" fill="#c45f4a"/>
+      <text x="20" y="23" class="hud-text">SCORE 1200</text>
+      <text x="212" y="23" class="hud-text">LOCALS SAFE 4/4</text>
+      <text x="410" y="23" class="hud-text">00:52</text>
+    </g>
+  </g>
+
+  <g transform="translate(40 1318)">
+    <text y="-16" class="panel-label">07 Tourist Archetype Tracker</text>
+    <text x="288" y="-16" class="panel-note">readable cast without pausing action</text>
+    <rect class="screen" width="500" height="333" rx="8"/>
+    <g clip-path="url(#screenClip)">
+      <use href="#sceneBase"/>
+      <use href="#player" x="218" y="246"/>
+      <use href="#tourist" x="218" y="164" style="color:#ff6b6b"/>
+      <use href="#tourist" x="270" y="112" style="color:#39a96b"/>
+      <use href="#tourist" x="190" y="78" style="color:#f2b5d4"/>
+      <rect x="348" y="0" width="152" height="333" fill="#10202b" opacity="0.9"/>
+      <text x="366" y="28" class="hud-text-light">TOURISTS</text>
+      <g transform="translate(362 48)">
+        <rect width="118" height="38" rx="6" fill="#fff4d6"/>
+        <circle cx="20" cy="19" r="11" fill="#ff6b6b"/>
+        <text x="39" y="17" class="label-dark tiny">GUIRI GAMBA</text>
+        <text x="39" y="30" class="muted tiny">slow, screams</text>
+      </g>
+      <g transform="translate(362 96)">
+        <rect width="118" height="38" rx="6" fill="#fff4d6"/>
+        <circle cx="20" cy="19" r="11" fill="#39a96b"/>
+        <text x="39" y="17" class="label-dark tiny">STAG CREW</text>
+        <text x="39" y="30" class="muted tiny">scatter group</text>
+      </g>
+      <g transform="translate(362 144)">
+        <rect width="118" height="38" rx="6" fill="#fff4d6"/>
+        <circle cx="20" cy="19" r="11" fill="#f2b5d4"/>
+        <text x="39" y="17" class="label-dark tiny">INFLUENCER</text>
+        <text x="39" y="30" class="muted tiny">outrage pose</text>
+      </g>
+      <g transform="translate(362 224)">
+        <rect width="118" height="42" rx="6" fill="#ffd166"/>
+        <text x="15" y="19" class="label-dark tiny">NEXT BONUS</text>
+        <text x="15" y="32" class="label-dark tiny">2 TYPES IN 10 SEC</text>
+      </g>
+      <rect x="0" y="0" width="348" height="34" fill="#10202b" opacity="0.84"/>
+      <text x="20" y="23" class="hud-text-light">SCORE 950</text>
+      <text x="218" y="23" class="hud-text-light">WATER 5/8</text>
+    </g>
+  </g>
+
+  <g transform="translate(580 1318)">
+    <text y="-16" class="panel-label">08 Stag Crew Chaos</text>
+    <text x="246" y="-16" class="panel-note">group NPCs and scatter feedback</text>
+    <rect class="screen" width="500" height="333" rx="8"/>
+    <g clip-path="url(#screenClip)">
+      <use href="#sceneBase"/>
+      <use href="#player" x="250" y="262"/>
+      <g style="color:#39a96b">
+        <use href="#tourist" x="230" y="145"/>
+        <use href="#tourist" x="262" y="134"/>
+        <use href="#tourist" x="292" y="152"/>
+        <use href="#tourist" x="248" y="180"/>
+      </g>
+      <path d="M258 250 C253 223 251 196 250 160" stroke="#69dcff" stroke-width="8" stroke-linecap="round" opacity="0.63"/>
+      <path d="M230 145 L194 112 M262 134 L264 88 M292 152 L332 124 M248 180 L214 218" stroke="#fff4d6" stroke-width="3" stroke-dasharray="6 5"/>
+      <g transform="translate(166 44)">
+        <rect x="0" y="0" width="168" height="44" rx="8" fill="#39a96b" stroke="#10202b" stroke-width="2"/>
+        <text x="16" y="24" class="label-dark small">PANIC SCATTER x4</text>
+        <text x="58" y="38" class="label-dark tiny">+800 GROUP BONUS</text>
+      </g>
+      <rect x="18" y="270" width="212" height="38" rx="8" fill="#10202b" opacity="0.88"/>
+      <text x="34" y="294" class="hud-text-light small">CHANT METER</text>
+      <rect x="128" y="282" width="82" height="10" rx="3" fill="#ffd166"/>
+      <rect x="0" y="0" width="500" height="34" fill="#c45f4a"/>
+      <text x="20" y="23" class="hud-text">SCORE 2100</text>
+      <text x="395" y="23" class="hud-text">00:31</text>
+    </g>
+  </g>
+
+  <g transform="translate(40 1718)">
+    <text y="-16" class="panel-label">09 Compact Mobile HUD</text>
+    <text x="246" y="-16" class="panel-note">same prototype, thumb-friendly</text>
+    <rect class="screen" width="500" height="333" rx="8"/>
+    <g clip-path="url(#screenClip)">
+      <use href="#sceneBase"/>
+      <use href="#player" x="250" y="214"/>
+      <use href="#tourist" x="215" y="134" style="color:#ff6b6b"/>
+      <use href="#tourist" x="304" y="102" style="color:#f2b5d4"/>
+      <rect x="0" y="0" width="500" height="42" fill="#10202b" opacity="0.88"/>
+      <text x="22" y="27" class="hud-text-light">03 / 08</text>
+      <text x="226" y="27" class="hud-text-light">00:58</text>
+      <rect x="372" y="12" width="86" height="18" rx="4" fill="#29414f"/>
+      <rect x="376" y="16" width="52" height="10" rx="3" fill="#50d8ff"/>
+      <circle cx="86" cy="252" r="52" fill="#10202b" opacity="0.55"/>
+      <circle cx="86" cy="252" r="24" fill="#fff4d6" opacity="0.92"/>
+      <path d="M86 220 L86 198 M86 306 L86 284 M54 252 L32 252 M140 252 L118 252" stroke="#fff4d6" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+      <circle cx="416" cy="252" r="50" fill="#1f9fb4" opacity="0.92" stroke="#10202b" stroke-width="3"/>
+      <rect x="394" y="245" width="44" height="12" rx="5" fill="#d7f8ff"/>
+      <rect x="386" y="262" width="60" height="20" rx="7" fill="#0f6a7d"/>
+      <text x="392" y="235" class="hud-text-light small">SPRAY</text>
+      <rect x="192" y="280" width="116" height="30" rx="6" fill="#fff4d6" stroke="#10202b" stroke-width="2"/>
+      <text x="213" y="300" class="hud-text">REFILL E</text>
+    </g>
+  </g>
+
+  <g transform="translate(580 1718)">
+    <text y="-16" class="panel-label">10 End Round Scorecard</text>
+    <text x="246" y="-16" class="panel-note">summary after win or timeout</text>
+    <rect class="screen" width="500" height="333" rx="8"/>
+    <g clip-path="url(#screenClip)">
+      <use href="#sceneBase"/>
+      <rect width="500" height="333" fill="#10202b" opacity="0.62"/>
+      <g transform="translate(96 44)">
+        <rect width="308" height="238" rx="8" fill="#fff4d6" stroke="#10202b" stroke-width="3"/>
+        <rect width="308" height="58" rx="8" fill="#c45f4a"/>
+        <text x="85" y="37" class="label-dark" font-size="24">YOU WIN</text>
+        <text x="34" y="88" class="label-dark small">WET TOURISTS</text>
+        <text x="236" y="88" class="label-dark small">8 / 8</text>
+        <rect x="34" y="100" width="240" height="10" rx="3" fill="#d8c28d"/>
+        <rect x="34" y="100" width="240" height="10" rx="3" fill="#50d8ff"/>
+        <text x="34" y="136" class="label-dark small">LOCALS SPARED</text>
+        <text x="236" y="136" class="label-dark small">4 / 4</text>
+        <rect x="34" y="148" width="240" height="10" rx="3" fill="#d8c28d"/>
+        <rect x="34" y="148" width="240" height="10" rx="3" fill="#48c17d"/>
+        <text x="34" y="184" class="label-dark small">WATER USED</text>
+        <text x="236" y="184" class="label-dark small">18</text>
+        <rect x="34" y="202" width="108" height="28" rx="6" fill="#10202b"/>
+        <text x="56" y="221" class="hud-text-light small">RESTART</text>
+        <rect x="166" y="202" width="108" height="28" rx="6" fill="#ffd166"/>
+        <text x="190" y="221" class="label-dark small">NEXT</text>
+      </g>
+    </g>
+  </g>
+</svg>
