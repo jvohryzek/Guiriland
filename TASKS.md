@@ -1,15 +1,15 @@
 # Tasks
 
 ## MVP
-- [ ] Scaffold Phaser 3 + Vite project
-- [ ] Add one playable scene
-- [ ] Add player movement
-- [ ] Add mouse/keyboard water spray
-- [ ] Add tourist NPCs
-- [ ] Add scoring
-- [ ] Add timer
-- [ ] Add win/lose state
-- [ ] Add restart button
+- [x] Scaffold Phaser 3 + Vite project
+- [x] Add one playable scene
+- [x] Add player movement
+- [x] Add mouse/keyboard water spray
+- [x] Add tourist NPCs
+- [x] Add scoring
+- [x] Add timer
+- [x] Add win/lose state
+- [x] Add restart button
 
 ## Later
 - [ ] Add La Rambla visual details
