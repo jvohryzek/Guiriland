@@ -2360,8 +2360,7 @@ async function saveScore(result) {
     const response = await fetch(`${SUPABASE_URL}/rest/v1/${LEADERBOARD_TABLE}`, {
       method: "POST",
       headers: {
-        apikey: SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        ...getLeaderboardHeaders(),
         "Content-Type": "application/json",
         Prefer: "return=minimal",
       },
@@ -2433,10 +2432,7 @@ async function loadLeaderboard() {
       limit: "10",
     });
     const response = await fetch(`${SUPABASE_URL}/rest/v1/${LEADERBOARD_TABLE}?${query}`, {
-      headers: {
-        apikey: SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-      },
+      headers: getLeaderboardHeaders(),
     });
 
     if (!response.ok) {
@@ -2472,6 +2468,16 @@ function sortScores(scores) {
 
 function hasRemoteLeaderboard() {
   return SUPABASE_URL.length > 0 && SUPABASE_ANON_KEY.length > 0;
+}
+
+function getLeaderboardHeaders() {
+  const headers = { apikey: SUPABASE_ANON_KEY };
+
+  if (SUPABASE_ANON_KEY.startsWith("eyJ")) {
+    headers.Authorization = `Bearer ${SUPABASE_ANON_KEY}`;
+  }
+
+  return headers;
 }
 
 function escapeHtml(value) {

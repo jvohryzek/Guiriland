@@ -59,6 +59,8 @@ Deployment helpers:
 - `.env.example`: optional Supabase leaderboard variables
 - `vercel.json`: Vercel build/output settings and SPA fallback
 
+For the shared leaderboard, `VITE_SUPABASE_ANON_KEY` can be a current Supabase publishable key or the legacy anon key. Never use the secret/service role key in the browser app.
+
 ## URL Modes
 
 Normal gameplay:

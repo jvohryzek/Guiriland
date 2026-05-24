@@ -26,7 +26,7 @@ Environment variables:
 
 ```text
 VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key
+VITE_SUPABASE_ANON_KEY=your-publishable-or-legacy-anon-key
 VITE_LEADERBOARD_TABLE=guiriland_scores
 ```
 
@@ -50,10 +50,10 @@ If the remote already exists, skip the `git remote add origin ...` line.
 1. Create a Supabase project.
 2. Open the SQL editor.
 3. Run `docs/supabase-leaderboard.sql`.
-4. Copy the project URL and anon key from Supabase settings.
+4. Copy the project URL and publishable key from Supabase settings. The legacy anon key also works.
 5. Add them as Vercel environment variables.
 
-Keep the Supabase service role key private. Never add it to Vite environment variables or client-side code.
+Keep the Supabase secret/service role key private. Never add it to Vite environment variables or client-side code.
 
 ## Score Formula
 
