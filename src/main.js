@@ -43,61 +43,65 @@ class RamblaScene extends Phaser.Scene {
   }
 
   createWorld() {
-    this.cameras.main.setBackgroundColor("#485967");
+    this.cameras.main.setBackgroundColor("#263240");
 
     const graphics = this.add.graphics();
-    graphics.fillStyle(0x485967, 1);
+    graphics.fillStyle(0x263240, 1);
     graphics.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-    graphics.fillStyle(0x65737a, 1);
+    graphics.fillStyle(0x52616b, 1);
     graphics.fillRect(0, 42, GAME_WIDTH, GAME_HEIGHT - 84);
 
-    graphics.fillStyle(0xe4ca8c, 1);
-    graphics.beginPath();
-    graphics.moveTo(135, 42);
-    graphics.lineTo(805, 42);
-    graphics.lineTo(865, GAME_HEIGHT - 42);
-    graphics.lineTo(75, GAME_HEIGHT - 42);
-    graphics.closePath();
-    graphics.fillPath();
+    this.fillFacet(graphics, [
+      [122, 42],
+      [818, 42],
+      [884, GAME_HEIGHT - 42],
+      [56, GAME_HEIGHT - 42],
+    ], 0xc69a5a);
 
-    graphics.lineStyle(3, 0xc19f5f, 1);
-    for (let x = 140; x < 820; x += 72) {
-      graphics.lineBetween(x, 42, x - 58, GAME_HEIGHT - 42);
-    }
-    for (let y = 110; y < GAME_HEIGHT - 70; y += 86) {
-      graphics.lineBetween(120, y, 840, y + 12);
-    }
+    this.fillFacet(graphics, [
+      [134, 42],
+      [804, 42],
+      [864, GAME_HEIGHT - 62],
+      [82, GAME_HEIGHT - 62],
+    ], 0xe6c988);
 
-    graphics.fillStyle(0x2f693f, 1);
-    graphics.fillRect(0, 42, 140, GAME_HEIGHT - 84);
-    graphics.fillRect(820, 42, 140, GAME_HEIGHT - 84);
+    this.drawPaving(graphics);
+
+    this.fillFacet(graphics, [
+      [0, 42],
+      [132, 42],
+      [82, GAME_HEIGHT - 62],
+      [0, GAME_HEIGHT - 42],
+    ], 0x2d6a44);
+    this.fillFacet(graphics, [
+      [804, 42],
+      [960, 42],
+      [960, GAME_HEIGHT - 42],
+      [864, GAME_HEIGHT - 62],
+    ], 0x285d3d);
 
     this.drawBoqueriaMarket(graphics);
     this.drawStreetDetails(graphics);
 
     for (let y = 78; y < GAME_HEIGHT - 72; y += 95) {
-      this.drawTree(122 - y * 0.08, y);
-      this.drawTree(820 + y * 0.08, y + 36);
+      this.drawTree(116 - y * 0.06, y);
+      this.drawTree(828 + y * 0.08, y + 36);
     }
 
-    graphics.fillStyle(0xbe5a43, 1);
+    graphics.fillStyle(0xb85845, 1);
     graphics.fillRect(0, 0, GAME_WIDTH, 42);
+    graphics.fillStyle(0xd1754f, 1);
+    graphics.fillRect(0, 32, GAME_WIDTH, 10);
+    graphics.fillStyle(0xb85845, 1);
     graphics.fillRect(0, GAME_HEIGHT - 42, GAME_WIDTH, 42);
+    graphics.fillStyle(0xd1754f, 1);
+    graphics.fillRect(0, GAME_HEIGHT - 42, GAME_WIDTH, 10);
   }
 
   createPlayer() {
     this.player = this.add.container(GAME_WIDTH / 2, GAME_HEIGHT / 2);
-    this.player.add([
-      this.add.ellipse(0, 24, 34, 14, 0x000000, 0.18),
-      this.add.rectangle(-7, 22, 8, 18, 0x2e4b7e),
-      this.add.rectangle(8, 22, 8, 18, 0x2e4b7e),
-      this.add.rectangle(0, 4, 28, 34, 0xffffff),
-      this.add.rectangle(-18, 6, 8, 22, 0xffcf9f),
-      this.add.rectangle(17, 5, 8, 22, 0xffcf9f),
-      this.add.circle(0, -18, 15, 0x2060b8),
-      this.add.circle(0, -14, 10, 0xffd4a3),
-    ]);
+    this.addPlayerVisual(this.player);
     this.player.setSize(34, 50);
 
     this.physics.add.existing(this.player);
@@ -107,9 +111,9 @@ class RamblaScene extends Phaser.Scene {
 
     this.waterPistol = this.add.container(this.player.x, this.player.y);
     this.waterPistol.add([
-      this.add.rectangle(14, 0, 28, 7, 0x19a7ce),
-      this.add.rectangle(4, 7, 9, 16, 0x0f5f75),
-      this.add.rectangle(29, 0, 8, 4, 0xd9f7ff),
+      this.add.polygon(14, 0, [0, -5, 27, -4, 34, 0, 27, 5, 0, 4], 0x28c7e8),
+      this.add.polygon(17, 4, [0, 0, 12, 0, 8, 17, 1, 15], 0x0f6a7d),
+      this.add.polygon(33, 0, [0, -3, 10, -2, 12, 1, 0, 3], 0xd9f7ff),
     ]);
   }
 
@@ -357,14 +361,93 @@ class RamblaScene extends Phaser.Scene {
     this.restartText.setText("Restart");
   }
 
+  fillFacet(graphics, points, color, alpha = 1) {
+    graphics.fillStyle(color, alpha);
+    graphics.beginPath();
+    graphics.moveTo(points[0][0], points[0][1]);
+
+    for (let i = 1; i < points.length; i += 1) {
+      graphics.lineTo(points[i][0], points[i][1]);
+    }
+
+    graphics.closePath();
+    graphics.fillPath();
+  }
+
+  drawPaving(graphics) {
+    const topY = 42;
+    const bottomY = GAME_HEIGHT - 62;
+    const leftTop = 134;
+    const rightTop = 804;
+    const leftBottom = 82;
+    const rightBottom = 864;
+    const rows = 8;
+    const columns = 9;
+
+    for (let row = 0; row < rows; row += 1) {
+      const y1 = Phaser.Math.Linear(topY, bottomY, row / rows);
+      const y2 = Phaser.Math.Linear(topY, bottomY, (row + 1) / rows);
+      const left1 = Phaser.Math.Linear(leftTop, leftBottom, row / rows);
+      const left2 = Phaser.Math.Linear(leftTop, leftBottom, (row + 1) / rows);
+      const right1 = Phaser.Math.Linear(rightTop, rightBottom, row / rows);
+      const right2 = Phaser.Math.Linear(rightTop, rightBottom, (row + 1) / rows);
+
+      for (let column = 0; column < columns; column += 1) {
+        const x1 = Phaser.Math.Linear(left1, right1, column / columns);
+        const x2 = Phaser.Math.Linear(left1, right1, (column + 1) / columns);
+        const x3 = Phaser.Math.Linear(left2, right2, (column + 1) / columns);
+        const x4 = Phaser.Math.Linear(left2, right2, column / columns);
+        const shade = (row + column) % 2 === 0 ? 0xe9cf91 : 0xddc282;
+
+        this.fillFacet(graphics, [[x1, y1], [x2, y1], [x3, y2], [x4, y2]], shade);
+      }
+    }
+
+    graphics.lineStyle(2, 0xb39158, 0.7);
+    for (let row = 0; row <= rows; row += 1) {
+      const t = row / rows;
+      graphics.lineBetween(
+        Phaser.Math.Linear(leftTop, leftBottom, t),
+        Phaser.Math.Linear(topY, bottomY, t),
+        Phaser.Math.Linear(rightTop, rightBottom, t),
+        Phaser.Math.Linear(topY, bottomY, t),
+      );
+    }
+
+    for (let column = 0; column <= columns; column += 1) {
+      const t = column / columns;
+      graphics.lineBetween(
+        Phaser.Math.Linear(leftTop, rightTop, t),
+        topY,
+        Phaser.Math.Linear(leftBottom, rightBottom, t),
+        bottomY,
+      );
+    }
+  }
+
+  addPlayerVisual(container) {
+    container.add([
+      this.add.ellipse(4, 28, 46, 16, 0x000000, 0.2),
+      this.add.polygon(-8, 21, [-6, -4, 3, -6, 8, 15, -2, 17], 0x203c69),
+      this.add.polygon(9, 21, [-3, -6, 7, -4, 3, 17, -7, 15], 0x2e5a95),
+      this.add.polygon(0, 3, [-17, -17, 15, -20, 20, 13, 3, 25, -17, 15], 0xf7f4e9),
+      this.add.polygon(10, 2, [0, -18, 10, -13, 8, 13, -5, 22], 0xe8dfcd),
+      this.add.polygon(-19, 6, [-3, -13, 5, -11, 6, 14, -4, 17], 0xffc58e),
+      this.add.polygon(20, 5, [-5, -12, 4, -10, 3, 14, -7, 16], 0xffc58e),
+      this.add.ellipse(0, -18, 26, 29, 0xffd4a3),
+      this.add.polygon(-2, -30, [-13, 0, -2, -11, 14, -5, 13, 3, -8, 5], 0x1e5eae),
+      this.add.polygon(8, -23, [-2, -2, 11, -1, 7, 6, -4, 5], 0x163c7d),
+    ]);
+  }
+
   drawBoqueriaMarket(graphics) {
-    graphics.fillStyle(0x8f2e2a, 1);
-    graphics.fillRect(0, 120, 142, 235);
+    this.fillFacet(graphics, [[0, 126], [124, 112], [146, 360], [0, 386]], 0x742a28);
+    this.fillFacet(graphics, [[0, 112], [134, 96], [124, 112], [0, 126]], 0xa94638);
+    this.fillFacet(graphics, [[0, 386], [146, 360], [136, 382], [0, 410]], 0x51211f);
 
-    graphics.fillStyle(0x254a3a, 1);
-    graphics.fillRect(18, 132, 106, 30);
+    this.fillFacet(graphics, [[16, 136], [116, 128], [122, 161], [16, 169]], 0x254a3a);
 
-    this.add.text(31, 137, "BOQUERIA", {
+    this.add.text(27, 138, "BOQUERIA", {
       fontFamily: "Arial",
       fontSize: "14px",
       color: "#f7e8bd",
@@ -372,42 +455,48 @@ class RamblaScene extends Phaser.Scene {
     });
 
     const stripeColors = [0xd6342f, 0xf7e8bd];
-    for (let x = 0; x < 142; x += 24) {
-      graphics.fillStyle(stripeColors[(x / 24) % 2], 1);
-      graphics.fillRect(x, 174, 24, 34);
+    for (let i = 0; i < 7; i += 1) {
+      const x = i * 22;
+      this.fillFacet(graphics, [
+        [x, 182],
+        [x + 24, 179],
+        [x + 23, 218],
+        [x - 1, 222],
+      ], stripeColors[i % 2]);
     }
 
-    graphics.fillStyle(0x3c2220, 1);
-    graphics.fillRect(25, 210, 90, 122);
+    this.fillFacet(graphics, [[26, 230], [112, 222], [105, 334], [24, 350]], 0x3c2220);
+    this.fillFacet(graphics, [[35, 245], [103, 238], [98, 282], [32, 293]], 0x5b3327);
     graphics.fillStyle(0xf49b39, 1);
-    graphics.fillCircle(44, 240, 10);
-    graphics.fillCircle(70, 250, 11);
-    graphics.fillCircle(96, 238, 9);
+    graphics.fillCircle(45, 261, 10);
+    graphics.fillCircle(70, 270, 11);
+    graphics.fillCircle(95, 257, 9);
+    graphics.fillStyle(0xa3c85a, 1);
+    graphics.fillCircle(58, 282, 7);
+    graphics.fillCircle(84, 286, 8);
   }
 
   drawStreetDetails(graphics) {
-    graphics.fillStyle(0x7a4e31, 1);
-    graphics.fillRect(700, 104, 70, 18);
-    graphics.fillRect(695, 122, 8, 20);
-    graphics.fillRect(765, 122, 8, 20);
+    this.fillFacet(graphics, [[690, 100], [772, 103], [760, 123], [682, 120]], 0x7a4e31);
+    this.fillFacet(graphics, [[700, 120], [708, 120], [705, 145], [697, 145]], 0x4f321f);
+    this.fillFacet(graphics, [[756, 123], [765, 123], [766, 147], [757, 147]], 0x4f321f);
 
-    graphics.fillStyle(0x1d2934, 1);
-    graphics.fillRect(268, 286, 34, 44);
-    graphics.fillStyle(0x6cbf84, 1);
-    graphics.fillRect(272, 292, 26, 10);
+    this.fillFacet(graphics, [[266, 286], [304, 287], [300, 330], [260, 328]], 0x1d2934);
+    this.fillFacet(graphics, [[271, 292], [299, 292], [298, 304], [270, 304]], 0x6cbf84);
+    this.fillFacet(graphics, [[260, 328], [300, 330], [292, 342], [252, 339]], 0x111827);
 
-    graphics.fillStyle(0x36454f, 1);
-    graphics.fillRect(872, 320, 34, 45);
-    graphics.fillStyle(0x96d2e0, 1);
-    graphics.fillRect(876, 326, 26, 11);
+    this.fillFacet(graphics, [[870, 320], [908, 318], [904, 363], [866, 366]], 0x36454f);
+    this.fillFacet(graphics, [[875, 326], [903, 325], [902, 338], [874, 339]], 0x96d2e0);
+    this.fillFacet(graphics, [[866, 366], [904, 363], [896, 376], [858, 378]], 0x202a32);
   }
 
   drawTree(x, y) {
-    this.add.ellipse(x + 6, y + 18, 48, 18, 0x000000, 0.15);
-    this.add.rectangle(x, y + 15, 9, 28, 0x815430);
-    this.add.circle(x, y, 24, 0x2f7a48);
-    this.add.circle(x - 14, y + 7, 17, 0x3e8a54);
-    this.add.circle(x + 15, y + 6, 18, 0x27653f);
+    this.add.ellipse(x + 7, y + 27, 62, 22, 0x000000, 0.18);
+    this.add.polygon(x, y + 22, [-6, -4, 6, -5, 9, 27, -8, 29], 0x815430);
+    this.add.polygon(x - 8, y, [-24, 6, -4, -18, 18, -10, 14, 13, -10, 21], 0x3f8e55);
+    this.add.polygon(x + 13, y + 3, [-18, 0, 2, -21, 23, -6, 18, 18, -8, 19], 0x2f7248);
+    this.add.polygon(x + 1, y - 11, [-16, 4, 0, -19, 20, 0, 8, 20, -18, 16], 0x4c9b5e);
+    this.add.polygon(x - 2, y + 8, [-28, 1, -2, -14, 26, 0, 17, 24, -19, 24], 0x347b4a);
   }
 
   addTouristVisual(npc, type, index) {
@@ -423,21 +512,25 @@ class RamblaScene extends Phaser.Scene {
     const shirtColor = shirtColors[type] ?? (index % 2 === 0 ? 0xffd166 : 0xff7f50);
 
     npc.add([
-      this.add.ellipse(0, 27, 36, 12, 0x000000, 0.16),
-      this.add.rectangle(-6, 25, 7, 16, 0x36454f),
-      this.add.rectangle(7, 25, 7, 16, 0x36454f),
-      this.add.rectangle(0, 8, 28, 34, shirtColor),
-      this.add.circle(0, -16, 12, skinColor),
+      this.add.ellipse(3, 29, 42, 14, 0x000000, 0.18),
+      this.add.polygon(-7, 24, [-6, -5, 3, -6, 7, 14, -3, 16], 0x3c4650),
+      this.add.polygon(8, 24, [-4, -6, 5, -5, 3, 16, -7, 14], 0x4d5964),
+      this.add.polygon(0, 8, [-16, -15, 13, -17, 18, 11, 1, 23, -15, 14], shirtColor),
+      this.add.polygon(9, 7, [0, -14, 9, -10, 8, 10, -4, 19], Phaser.Display.Color.ValueToColor(shirtColor).darken(18).color),
+      this.add.ellipse(0, -16, 23, 25, skinColor),
+      this.add.polygon(-2, -28, [-11, 1, -1, -8, 13, -3, 12, 4, -7, 5], 0x8a5a3b),
     ]);
 
     if (type === "sangria") {
       npc.add([
-        this.add.rectangle(19, 12, 12, 26, 0xf28e2b, 0.82),
-        this.add.rectangle(19, -4, 8, 10, 0xf7f0d0, 0.9),
+        this.add.polygon(20, 10, [-7, -13, 7, -12, 8, 14, -5, 18], 0xf28e2b, 0.82),
+        this.add.ellipse(21, -5, 11, 7, 0xf7f0d0, 0.9),
+        this.add.circle(17, 2, 3, 0xd6342f),
       ]);
     }
 
     if (type === "stag") {
+      npc.add(this.add.polygon(0, -35, [-8, 0, 0, -14, 8, 0], 0xffd166));
       npc.add(this.add.text(-13, 2, "STAG", {
         fontFamily: "Arial",
         fontSize: "8px",
@@ -448,10 +541,17 @@ class RamblaScene extends Phaser.Scene {
 
     if (type === "sandals") {
       npc.add([
-        this.add.rectangle(-6, 34, 10, 5, 0xffffff),
-        this.add.rectangle(8, 34, 10, 5, 0xffffff),
-        this.add.rectangle(-6, 38, 12, 4, 0x8b5a2b),
-        this.add.rectangle(8, 38, 12, 4, 0x8b5a2b),
+        this.add.ellipse(-6, 34, 12, 6, 0xffffff),
+        this.add.ellipse(8, 34, 12, 6, 0xffffff),
+        this.add.ellipse(-6, 39, 13, 5, 0x8b5a2b),
+        this.add.ellipse(8, 39, 13, 5, 0x8b5a2b),
+      ]);
+    }
+
+    if (type === "sunburn") {
+      npc.add([
+        this.add.polygon(-14, 3, [-3, -10, 5, -9, 6, 13, -4, 15], 0xff6f5e),
+        this.add.polygon(15, 3, [-5, -9, 3, -10, 4, 15, -6, 13], 0xff6f5e),
       ]);
     }
 
@@ -460,18 +560,18 @@ class RamblaScene extends Phaser.Scene {
       stick.setLineWidth(3);
       npc.add([
         stick,
-        this.add.rectangle(34, -42, 13, 9, 0x121826),
+        this.add.polygon(34, -42, [-7, -5, 7, -4, 6, 5, -7, 4], 0x121826),
       ]);
     }
 
     if (type === "backpack") {
       npc.add([
-        this.add.rectangle(-16, 7, 11, 28, 0x7057a3),
-        this.add.rectangle(-18, -3, 7, 18, 0x4a3a73),
+        this.add.polygon(-16, 7, [-7, -15, 5, -12, 7, 14, -8, 17], 0x7057a3),
+        this.add.polygon(-20, -3, [-4, -9, 4, -7, 5, 9, -5, 10], 0x4a3a73),
       ]);
     }
 
-    npc.add(this.add.rectangle(14, -8, 11, 7, 0x2b2d42));
+    npc.add(this.add.polygon(14, -8, [-6, -4, 6, -3, 7, 4, -6, 4], 0x2b2d42));
   }
 }
 
