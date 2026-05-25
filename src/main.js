@@ -30,7 +30,7 @@ const LOCATION_ID = "la-rambla";
 const LOCATION_NAME = "La Rambla";
 const LOCAL_PLAYER_KEY = "guiriland_player_name";
 const LOCAL_LEADERBOARD_KEY = `guiriland_scores_${LOCATION_ID}`;
-const SUPABASE_URL = (import.meta.env.VITE_SUPABASE_URL ?? "").replace(/\/$/, "");
+const SUPABASE_URL = normalizeSupabaseUrl(import.meta.env.VITE_SUPABASE_URL ?? "");
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY ?? "";
 const LEADERBOARD_TABLE = import.meta.env.VITE_LEADERBOARD_TABLE ?? "guiriland_scores";
 const NPC_PREVIEW_MODE = new URLSearchParams(window.location.search).has("npcPreview");
@@ -2347,6 +2347,10 @@ function sanitizePlayerName(name) {
     .replace(/\s+/g, " ")
     .slice(0, 16);
   return cleaned || "Anonymous";
+}
+
+function normalizeSupabaseUrl(url) {
+  return String(url).trim().replace(/\/$/, "").replace(/\/rest\/v1$/i, "");
 }
 
 async function saveScore(result) {

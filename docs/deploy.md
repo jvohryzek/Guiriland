@@ -30,6 +30,8 @@ VITE_SUPABASE_ANON_KEY=your-publishable-or-legacy-anon-key
 VITE_LEADERBOARD_TABLE=guiriland_scores
 ```
 
+If Supabase shows a Data API URL ending in `/rest/v1`, it is also okay to paste it. The game normalizes that URL before making leaderboard requests.
+
 Without the Supabase variables, the game still works and stores the leaderboard in the browser's local storage.
 
 ## GitHub Push
